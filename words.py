@@ -1,7 +1,3 @@
-import sys
-import string
-# Author: Prof. Fitzsimmons
-# Date: Fall 2020
 # Filename: words.py
 #
 # Description: Implementation of a search algorithm to find a
@@ -15,13 +11,10 @@ import string
 # 
 # Usage: python3 words.py dictionaryFile startWord endWord
 
-# Python queue implementation (https://docs.python.org/3.5/library/collections.html?highlight=deque#collections.deque)
+import sys
+import string
 from collections import deque
 
-# Usage of deque: 
-#   q = deque()   # declare new deque
-#   q.append('A') # append A to the rear of the queue.
-#   q.popleft()   # pop from the front of the queue.
 
 class Node:
     def __init__(self, state, parent):
@@ -40,6 +33,7 @@ class Node:
 def read_file(filename):
     """Read in each word from a dictionary where each
     word is listed on a single line."""
+    
     print("Reading dictionary: " +filename)
     word_dict = set()
 
@@ -64,7 +58,6 @@ def find_path(startWord, goalWord, word_dict):
     that form the shortest path from startWord to goalWord,
     and returns None if no such path exists."""
 
-    # Insert your code for searching here.
 
     if len(startWord) != len(goalWord):
         print('Words must be same length')
@@ -117,7 +110,6 @@ def main():
             if(solution is None):
                 print("None exists!")
             else:
-                # I changed the orignal code here to print out and iterate through node values
                 while solution is not None:
                     print (solution.state)
                     solution = solution.parent
